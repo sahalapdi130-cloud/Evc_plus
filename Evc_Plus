@@ -1,0 +1,253 @@
+import java.util.Scanner;
+
+public class EvcPlusSimulation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter code  adeega Evc Plus");
+
+
+        final String PIN_SAX_AH = "2567";
+        double haraaga = 100.00;
+        String ussdCode = scanner.nextLine();
+
+        if (!ussdCode.equals("*770#")) {
+            System.out.println("\n[Connection problem or invalid MMI code.]");
+            return;
+
+        }
+        System.out.println("\nDialing...\n");
+
+        System.out.println("         DEVELOPER INFORMATION            ");
+
+        System.out.println(" NAME: Sahal abdi sheikh               ");
+        System.out.println(" ID:   C6240209                           ");
+
+        System.out.println("Processing system initialization...\n");
+
+
+
+
+
+        System.out.println(" -EVCPLUS-                              ");
+        System.out.println(" Fadlan geli PIN-kaaga (Enter PIN)      ");
+        System.out.println("    [C] Cancel             [S] Send     ");
+        System.out.print("Geli PIN-kaaga (ama 'c' si aad u joojiso):");
+        String pin = scanner.nextLine();
+
+        if (pin.equalsIgnoreCase("c") || pin.isEmpty()) {
+            System.out.println("\n<-EVCPlus-> Waa la huwiyay (Cancelled).");
+            return;
+        }
+
+        if (!pin.equals(PIN_SAX_AH)) {
+            System.out.println("\n<-EVCPlus-> PIN-kaaga waa khaldan yahay!");
+            return;
+        }
+
+        System.out.println("\nProcessing...\n");
+
+
+
+        System.out.println(" EVCPlus                                ");
+        System.out.println(" 1. Itus Haraaga                        ");
+        System.out.println(" 2. Kaarka hadalka                      ");
+        System.out.println(" 3. Bixi Biil                           ");
+        System.out.println(" 4. U wareeji EVCPlus                   ");
+        System.out.println(" 5. Warbixin Kooban                     ");
+        System.out.println(" 6. Salaam Bank                         ");
+        System.out.println(" 7. Maareynta                           ");
+        System.out.println(" 8. TAAJ                                ");
+        System.out.println(" 9. Bill Payment                        ");
+
+        System.out.println("    [C] Cancel                          |");
+
+        System.out.print("Dooro lambar (1-9) ama 'c': ");
+
+        String doorashoStr = scanner.next();
+
+        if (doorashoStr.equalsIgnoreCase("c")) {
+            System.out.println("\n<-EVCPlus-> Waa la huwiyay (Cancelled).");
+            return;
+        }
+
+        int doorasho;
+        try {
+            doorasho = Integer.parseInt(doorashoStr);
+        } catch (NumberFormatException e) {
+            System.out.println("Dooro lambar sax ah!");
+            return;
+        }
+
+
+        System.out.println("\n.----------------------------------------.");
+        System.out.println("| Input: [ " + doorasho + " ]                               |");
+        System.out.println("'----------------------------------------'");
+        System.out.println("Processing...\n");
+
+
+        switch (doorasho) {
+            case 1:
+
+
+
+                System.out.println("  <-EVCPlus- > Haraagaagu waa $" + String.format("%.2f", haraaga) + "   ");
+                System.out.println("                                        ");
+                System.out.println("               [O] OK                   ");
+                System.out.print("Riix 'o' si aad u xirto: ");
+                String okAction = scanner.next();
+
+                if (okAction.equalsIgnoreCase("o")) {
+                    System.out.println("\nShaashaddii waa la xiray. Mahadsanid!");
+                } else {
+                    System.out.println("\nLaguma dhufan OK dhab ah, laakiin koodka waa la soo afjaray.");
+                }
+                break;
+
+            case 2:
+
+                System.out.println(" Kaarka hadalka                         ");
+                System.out.println(" 1. Ku Shubo Airtime                    ");
+                System.out.println(" 2. Ugu Shub Airtime                    ");
+                System.out.println(" 3. MIFI Packages                       ");
+                System.out.println(" 4. Ku shubo Internet                   ");
+                System.out.println(" 5. Ugu shub qof kale (MMT)             ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-5) ama 'c': ");
+
+                String sub2 = scanner.next();
+                if(sub2.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub2 + " ]\nProcessing...\n");
+                break;
+
+            case 3:
+
+
+                System.out.println(" Bixi Biil                              ");
+                System.out.println(" 1. Post Paid                           ");
+                System.out.println(" 2. Ku libso                            ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-2) ama 'c': ");
+
+                String sub3 = scanner.next();
+                if(sub3.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub3 + " ]\nProcessing...\n");
+                break;
+
+            case 4:
+
+                scanner.nextLine();
+
+                System.out.println(" Fadlan Geli Mobile-ka                  ");
+
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Geli nambarka ama 'c': ");
+                String mobileNumber = scanner.nextLine();
+
+                if (mobileNumber.equalsIgnoreCase("c") || mobileNumber.isEmpty()) {
+                    System.out.println("Transaction Cancelled.");
+                    return;
+                }
+                System.out.println("\nInput: [ " + mobileNumber + " ]\nProcessing...\n");
+
+                System.out.println(" Fadlan Geli Lacagta                    ");
+                System.out.println("                                        ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Geli lacagta ($) ama 'c': ");
+                String lacagta = scanner.nextLine();
+
+                if (lacagta.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ $" + lacagta + " ]\nProcessing...\n");
+
+                System.out.println("Waxaad $" + lacagta + " u wareejisay nambarka: " + mobileNumber);
+                break;
+
+            case 5:
+
+                System.out.println(" Warbixin Kooban                        ");
+                System.out.println(" 1. Last Action                         ");
+                System.out.println(" 2. Wareejintii u dambeysay             ");
+                System.out.println(" 3. Iibsashadii u dambeysay             ");
+                System.out.println(" 4. Last 3 Actions                      ");
+                System.out.println(" 5. Email Me My ACtivity                ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-5) ama 'c': ");
+
+                String sub5 = scanner.next();
+                if(sub5.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub5 + " ]\nProcessing...\n");
+                break;
+
+            case 6:
+
+                System.out.println(" Salaam Bank                            ");
+                System.out.println(" 1. Itus Haraaga                        ");
+                System.out.println(" 2. Lacag dhigasho                      ");
+                System.out.println(" 3. Lacag qaadasho                      ");
+                System.out.println(" 4. Ka Wareeji EVCPlus                  ");
+                System.out.println(" 5. Ka Wareeji Account-kaga             ");
+                System.out.println(" 6. Hubi wareejin account               ");
+                System.out.println(" 7. Maareynta Bankiga                   ");
+                System.out.println(" 8. Kala Bax                            ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-8) ama 'c': ");
+
+                String sub6 = scanner.next();
+                if(sub6.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub6 + " ]\nProcessing...\n");
+                break;
+
+            case 7:
+
+                System.out.println(" Maareynta                              ");
+                System.out.println(" 1. Bedel lambarka sirta ah             ");
+                System.out.println(" 2. Bedel Luqadda                       ");
+                System.out.println(" 3. Wargelin Mobile Lumay               ");
+                System.out.println(" 4. Lacag Xirasho                       ");
+                System.out.println(" 5. U celi lacag qaldantay              ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-5) ama 'c': ");
+
+                String sub7 = scanner.next();
+                if(sub7.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub7 + " ]\nProcessing...\n");
+                break;
+
+            case 8:
+
+                System.out.println(" TAAJ                                   ");
+                System.out.println(" 1. Gudaha                              ");
+                System.out.println(" 2. Dibadda                             ");
+                System.out.println(" 3. Ogoow Khidmada                      ");
+                System.out.println(" 4. Macluumadka xawaaladda              ");
+                System.out.println(" 5. Jooji Xawaaladda                    ");
+                System.out.println(" 6. Fur Xawaaladda                      ");
+                System.out.println("    [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-6) ama 'c': ");
+
+                String sub8 = scanner.next();
+                if(sub8.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub8 + " ]\nProcessing...\n");
+                break;
+
+            case 9:
+
+                System.out.println(" EVCPlus                                ");
+                System.out.println(" 1. Itus Haraaga Bill ka                ");
+                System.out.println(" 2. Wada bixi Bill-ka                   ");
+                System.out.println(" 3. Qayb ka bixi Bill-ka                ");
+                System.out.println("   [C] Cancel                          ");
+                System.out.print("Dooro lambar (1-3) ama 'c': ");
+
+                String sub9 = scanner.next();
+                if(sub9.equalsIgnoreCase("c")) { System.out.println("Cancelled."); return; }
+                System.out.println("\nInput: [ " + sub9 + " ]\nProcessing...\n");
+                break;
+
+            default:
+                System.out.println("Doorasho khaldan!");
+                break;
+        }
+
+        scanner.close();
+    }
+}
